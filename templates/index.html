@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Random Guinea Pig Photo</title>
+</head>
+<body style="text-align:center; font-family:sans-serif;">
+  <h1>Random Guinea Pig Photo</h1>
+  <p>Rating: {{ rating_value }}</p>
+  
+  <!-- Display the random photo -->
+  <img src="{{ url_for('serve_image', filename=chosen_file) }}" 
+       style="max-width:600px; margin-bottom:20px;" 
+       alt="Random Photo" />
+
+  <!-- Up, Down, Next controls -->
+  <div>
+    <a href="{{ url_for('rate_photo', filename=chosen_file, direction='up') }}">
+      <button style="margin-right:10px;">Upvote</button>
+    </a>
+    <a href="{{ url_for('rate_photo', filename=chosen_file, direction='down') }}">
+      <button style="margin-right:10px;">Downvote</button>
+    </a>
+    <a href="{{ url_for('show_photo') }}">
+      <button>Next</button>
+    </a>
+  </div>
+</body>
+</html>
